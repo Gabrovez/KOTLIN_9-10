@@ -1,10 +1,11 @@
 fun  main (){
     val manager = ResourceManager()
-    val minerals = OutpostResource(1,"Minerals",300)
-    val gas = OutpostResource(2,"Gas",100)
-    manager.add(minerals)
-    manager.add(gas)
+    val minerals = OutpostResource(1,"Minerals",120)
+    val gas = OutpostResource(2,"Gas",40)
+    val generator = EnergyGenerator()
+    val lab = ResearchLab()
+    generator.performAction(manager)
+    lab.performAction(manager)
+    println()
     manager.printAll()
-    val bonus = minerals.copy(amount = minerals.amount + 50)
-    println("Copy of minerals with bonus: $bonus")
 }
