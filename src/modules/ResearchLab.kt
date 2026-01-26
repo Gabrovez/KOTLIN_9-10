@@ -1,3 +1,7 @@
+package modules
+
+import resources.ResourceManager
+
 class ResearchLab: OutpostModule(
     "Research Lab"
 ) {
