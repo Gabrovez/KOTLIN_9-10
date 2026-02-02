@@ -18,12 +18,31 @@ fun handleResult(result: NetworkResult) {
         }
     }
 }
-fun main(){
-    val success = NetworkResult.Success("Data received")
-    val error = NetworkResult.Error("Server is not responding", 500)
-    val loading = NetworkResult.Loading
+sealed class OrderStatus {
+    object Created : OrderStatus()
+    object Paid : OrderStatus()
+    object Shipped : OrderStatus()
+    data class Cancelled(val reason: String) : OrderStatus()
 
-    handleResult(success)
-    handleResult(error)
-    handleResult(loading)
+}
+fun handleOrder(status: OrderStatus) {
+    when (status) {
+        OrderStatus.Created -> println("Order created")
+        OrderStatus.Paid -> println("Order paid")
+        OrderStatus.Shipped -> println("Order shipped")
+        is OrderStatus.Cancelled -> println("Cancelled: ${status.reason}    ")
+    }
+}
+fun main(){
+    handleOrder(OrderStatus.Created)
+    handleOrder(OrderStatus.Paid)
+    handleOrder(OrderStatus.Shipped)
+    handleOrder(OrderStatus.Cancelled("Out of stock"))
+//    val success = NetworkResult.Success("Data received")
+//    val error = NetworkResult.Error("Server is not responding", 500)
+//    val loading = NetworkResult.Loading
+//
+//    handleResult(success)
+//    handleResult(error)
+//    handleResult(loading)
 }
