@@ -6,7 +6,7 @@
 ## Как запустить проект
 1.  Клонируйте репозиторий: 
 ```bash
-git clone <https://github.com/Gabrovez/Kotlin_Advanced_Lab_9_10_Kat>
+git clone <https://github.com/Gabrovez/KOTLIN_9-10>
 ```
 2. Откройте проект в IntelliJ Idea.
 3. Запустите любой пример через контекстное меню или напрямую из `main`.
